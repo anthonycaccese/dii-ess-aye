@@ -22,7 +22,7 @@
 
         Comment: Top screen (X 0-0.5)
         <image name="splash_logo">
-            <path>./assets/distro_logo.png</path>
+            <path>./assets/images/common/distro_logo.png</path>
             <pos>0.25 0.5</pos>
             <origin>0.5 0.5</origin>
             <maxSize>0.3 0.6</maxSize>
@@ -33,7 +33,7 @@
         </image>
 
         <image name="splash_effect">
-            <path>./assets/distro_effect.png</path>
+            <path>./assets/images/common/distro_effect.png</path>
             <pos>0.125 0.5</pos>
             <origin>0.5 0.5</origin>
             <maxSize>0.2 0.6</maxSize>
@@ -46,13 +46,13 @@
         </image>
     </view> -->
 
-    <!-- Static elements:
+    <!-- Static elements 
          Definitely need to not be in screen view, as they overlay the option menu.
          Though I'm not sure how else to keep them static as the carousel moves?    -->
     <view name="screen">
         <!-- Top screen (X 0-0.5) -->
         <image name="left_tab_image" extra="true">
-            <path>./assets/left_tab.png</path>
+            <path>./assets/images/common/left_tab.png</path>
             <pos>0 0</pos>
             <size>0.125 0.1</size>
             <zIndex>1</zIndex>
@@ -69,7 +69,7 @@
         </text>
 
         <image name="right_tab_image" extra="true">
-            <path>./assets/right_tab.png</path>
+            <path>./assets/images/common/right_tab.png</path>
             <pos>0.375 0</pos>
             <size>0.125 0.1</size>
             <zIndex>1</zIndex>
@@ -87,7 +87,7 @@
 
         <!-- Bottom screen (X 0.5-1.0) -->
         <image name="text_bubble" extra="true">
-            <path>./assets/text_bubble.png</path>
+            <path>./assets/images/common/text_bubble.png</path>
             <pos>0.75 0.72</pos>
             <origin>0.5 0.5</origin>
             <size>0.375 0.45</size>
@@ -95,7 +95,7 @@
         </image>
 
         <image name="start_window" extra="true">
-            <path>./assets/start_window.png</path>
+            <path>./assets/images/common/start_window.png</path>
             <pos>0.75 0.35</pos>
             <origin>0.5 0.5</origin>
             <maxSize>0.12 0.32</maxSize>
@@ -103,7 +103,7 @@
         </image>
 
         <image name="scroll_bar" extra="true">
-            <path>./assets/scroll_bar.png</path>
+            <path>./assets/images/common/scroll_bar.png</path>
             <pos>0.75 0.95</pos>
             <origin>0.5 0.5</origin>
             <size>0.45 0.1</size>
@@ -154,7 +154,7 @@
 
         <!-- Top screen (X 0-0.5) -->
         <image name="distro_logo" extra="true">
-            <path>./assets/distro_logo.png</path>
+            <path>./assets/images/common/distro_logo.png</path>
             <pos>0.25 0.5</pos>
             <origin>0.5 0.5</origin>
             <maxSize>0.3 0.6</maxSize>
@@ -216,7 +216,7 @@
 
         <!-- Top screen (X 0-0.5) -->
         <image name="preview_panel" extra="true">
-            <path>./assets/preview_panel.png</path>
+            <path>./assets/images/common/preview_panel.png</path>
             <pos>0.25 0.425</pos>
             <origin>0.5 0.5</origin>
             <size>0.3 0.55</size>
