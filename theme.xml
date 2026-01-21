@@ -199,7 +199,8 @@
         </text>
 
         <image name="logo">
-            <path>./assets/images/systems/{system:name}.png</path>
+            <path>./assets/images/systems/default.png</path>
+            <path>./assets/images/systems/${system.theme}.png</path>
             <storyboard>
                 <animation event="scroll" property="scale"/>
             </storyboard>
@@ -290,6 +291,7 @@
         <text name="gamecarouselLogoText">
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <forceUppercase>true</forceUppercase>
+            <fontSize>0.03</fontSize>
             <storyboard>
                 <animation event="scroll" property="scale"/>
             </storyboard>
