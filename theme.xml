@@ -8,6 +8,23 @@
         Bottom screen (right): X 0.5-1.0, center X=0.75
     -->
 
+    <!--
+    ///
+    Subset: Aspect Ratio
+    ///
+    -->
+    <subset name="aspect-ratio" displayName="Aspect Ratio">
+        <include if="${screen.width} == '1280' && ${screen.height} == '480'" name="dual-screen-rgds-auto" displayName="Automatic" />
+        <include if="{screen.ratio} == '4/3'" name="4-3-auto" displayName="Automatic" />
+        <include name="dual-screen-rgds" displayName="Dual Screen (RGDS)" />
+        <include name="4-3" displayName="4:3" />
+    </subset>
+
+    <!--
+    ///
+    View: Screen
+    ///
+    -->
     <view name="screen">
         <!-- Visibility override -->
         <controllerActivity name="controllerActivity">
@@ -15,8 +32,13 @@
         </controllerActivity>
     </view>
 
-    <!-- Global elements -->
+    <!--
+    ///
+    View: All
+    ///
+    -->
     <view name="system, gamecarousel">
+
         <!-- Both screens -->
         <image name="background" extra="true">
             <pos>0 0</pos>
@@ -28,14 +50,11 @@
         <!-- Top screen (X 0-0.5) -->
         <image name="left_tab_image" extra="true">
             <path>./assets/images/common/left_tab.png</path>
-            <pos>0 0.85</pos>
-            <size>0.125 0.15</size>
             <zIndex>1</zIndex>
         </image>
 
         <text name="left_tab_text" extra="true">
             <text>Prev</text>
-            <pos>0.05 0.875</pos>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.05</fontSize>
             <color>333333FF</color>
@@ -45,14 +64,11 @@
 
         <image name="right_tab_image" extra="true">
             <path>./assets/images/common/right_tab.png</path>
-            <pos>0.375 0.85</pos>
-            <size>0.125 0.15</size>
             <zIndex>1</zIndex>
         </image>
 
         <text name="right_tab_text" extra="true">
             <text>Next</text>
-            <pos>0.4 0.875</pos>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.05</fontSize>
             <color>333333FF</color>
@@ -63,65 +79,41 @@
         <!-- Bottom screen (X 0.5-1.0) -->
         <image name="text_bubble" extra="true">
             <path>./assets/images/common/text_bubble.png</path>
-            <pos>0.75 0.3</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.4 0.45</size>
             <zIndex>56</zIndex>
         </image>
 
         <image name="start_window" extra="true">
             <path>./assets/images/common/start_window.png</path>
-            <pos>0.75 0.67</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.12 0.32</maxSize>
             <zIndex>55</zIndex>
         </image>
 
         <image name="menu_slot0" extra="true">
             <path>./assets/images/common/menu_slot.png</path>
-            <pos>0.55 0.65</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.09 0.24</maxSize>
             <zIndex>49</zIndex>            
         </image>
 
         <image name="menu_slot1" extra="true">
             <path>./assets/images/common/menu_slot.png</path>
-            <pos>0.65 0.65</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.09 0.24</maxSize>
             <zIndex>49</zIndex>            
         </image>
 
         <image name="menu_slot2" extra="true">
             <path>./assets/images/common/menu_slot.png</path>
-            <pos>0.75 0.65</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.09 0.24</maxSize>
             <zIndex>49</zIndex>            
         </image>
 
         <image name="menu_slot3" extra="true">
             <path>./assets/images/common/menu_slot.png</path>
-            <pos>0.85 0.65</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.09 0.24</maxSize>
             <zIndex>49</zIndex>            
         </image>
 
         <image name="menu_slot4" extra="true">
             <path>./assets/images/common/menu_slot.png</path>
-            <pos>0.95 0.65</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.09 0.24</maxSize>
             <zIndex>49</zIndex>            
         </image>
 
         <image name="scroll_bar" extra="true">
             <path>./assets/images/common/scroll_bar.png</path>
-            <pos>0.75 0.95</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.5 0.1</size>
             <zIndex>1</zIndex>
         </image>
 
@@ -132,7 +124,11 @@
         </helpsystem>
     </view>
 
-    <!-- Main system selection menu -->
+    <!--
+    ///
+    View: System
+    ///
+    -->
     <view name="system">
         <!-- Both screens -->
         <sound name="launch">
@@ -142,22 +138,13 @@
         <!-- Top screen (X 0-0.5) -->
         <image name="distro_logo" extra="true">
             <path>./assets/images/common/distro_logo.png</path>
-            <pos>0.25 0.5</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.3 0.6</maxSize>
             <zIndex>1</zIndex>
         </image>
 
         <!-- Bottom screen (X 0.5-1.0) -->
         <carousel name="systemcarousel">
             <type>horizontal</type>
-            <pos>0.75 0.65</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.5 0.25</size>
-            <logoSize>0.04 0.12</logoSize>
-            <logoScale>1.0</logoScale>
             <color>00000000</color>
-            <maxLogoCount>5</maxLogoCount>
             <zIndex>50</zIndex>
             <defaultTransition>instant</defaultTransition>
             <transitionSpeed>0</transitionSpeed>
@@ -177,9 +164,6 @@
 
         <text name="systemName" extra="true">
             <text>{system:fullName}</text>
-            <pos>0.75 0.15</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.35 0.1</size>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.04</fontSize>
             <color>333333FF</color>
@@ -188,9 +172,6 @@
         </text>
 
         <text name="systemInfo">
-            <pos>0.75 0.35</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.35 0.3</size>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.025</fontSize>
             <color>333333FF</color>
@@ -205,8 +186,14 @@
                 <animation event="scroll" property="scale"/>
             </storyboard>
         </image>
+
     </view>
 
+    <!--
+    ///
+    View: Gamelist
+    ///
+    -->
     <view name="gamecarousel">
         <!-- Both screens -->
         <sound name="launch">
@@ -219,16 +206,10 @@
         <!-- Top screen (X 0-0.5) -->
         <image name="preview_panel" extra="true">
             <path>./assets/images/common/preview_panel.png</path>
-            <pos>0.25 0.45</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.4 0.65</size>
             <zIndex>1</zIndex>
         </image>
 
         <video name="md_video">
-            <pos>0.25 0.45</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.35 0.6</maxSize>
             <delay>3</delay>
             <showSnapshotNoVideo>true</showSnapshotNoVideo>
             <showSnapshotDelay>true</showSnapshotDelay>
@@ -237,21 +218,13 @@
         </video>
 
         <text name="logoText">
-            <pos>0.25 0.9</pos>
-            <origin>0.5 0.5</origin>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
         </text>
 
         <!-- Bottom screen (X 0.5-1.0) -->
         <gamecarousel name="gamecarousel">
             <type>horizontal</type>
-            <pos>0.75 0.64</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.5 0.25</size>
-            <logoSize>0.3 0.85</logoSize>
-            <logoScale>0.75</logoScale>
             <color>00000000</color>
-            <maxLogoCount>5</maxLogoCount>
             <zIndex>50</zIndex>
             <defaultTransition>instant</defaultTransition>
             <transitionSpeed>0</transitionSpeed>
@@ -261,9 +234,6 @@
         </gamecarousel>
 
         <text name="md_name">
-            <pos>0.75 0.15</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.35 0.1</size>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.04</fontSize>
             <color>333333FF</color>
@@ -272,9 +242,6 @@
         </text>
 
         <text name="md_description">
-            <pos>0.75 0.31</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.35 0.22</size>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.03</fontSize>
             <color>555555FF</color>
@@ -296,5 +263,15 @@
                 <animation event="scroll" property="scale"/>
             </storyboard>
         </text>
+        
     </view>
+
+   <!--
+   ///
+   Include: Aspect Ratios
+   ///
+   -->
+   <include ifSubset="aspect-ratio:dual-screen-rgds|dual-screen-rgds-auto">./aspect-ratio-dual-screen-rgds.xml</include>
+   <include ifSubset="aspect-ratio:4-3|4-3-auto">./aspect-ratio-4-3.xml</include>
+
 </theme>

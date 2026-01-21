@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme defaultTransition="instant">
+    <formatVersion>7</formatVersion>
+
+    <!--
+    ///
+    View: All
+    ///
+    -->
+    <view name="system, gamecarousel">
+
+        <!-- Top screen (X 0-0.5) -->
+        <image name="left_tab_image" extra="true">
+            <pos>0 0.85</pos>
+            <size>0.125 0.15</size>
+        </image>
+
+        <text name="left_tab_text" extra="true">
+            <pos>0.05 0.875</pos>
+        </text>
+
+        <image name="right_tab_image" extra="true">
+            <pos>0.375 0.85</pos>
+            <size>0.125 0.15</size>
+        </image>
+
+        <text name="right_tab_text" extra="true">
+            <pos>0.4 0.875</pos>
+        </text>
+
+        <!-- Bottom screen (X 0.5-1.0) -->
+        <image name="text_bubble" extra="true">
+            <pos>0.75 0.3</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.4 0.45</size>
+        </image>
+
+        <image name="start_window" extra="true">
+            <pos>0.75 0.67</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.12 0.32</maxSize>
+        </image>
+
+        <image name="menu_slot0" extra="true">
+            <pos>0.55 0.65</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.09 0.24</maxSize>
+        </image>
+
+        <image name="menu_slot1" extra="true">
+            <pos>0.65 0.65</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.09 0.24</maxSize>
+        </image>
+
+        <image name="menu_slot2" extra="true">
+            <pos>0.75 0.65</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.09 0.24</maxSize>
+        </image>
+
+        <image name="menu_slot3" extra="true">
+            <pos>0.85 0.65</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.09 0.24</maxSize> 
+        </image>
+
+        <image name="menu_slot4" extra="true">
+            <pos>0.95 0.65</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.09 0.24</maxSize> 
+        </image>
+
+        <image name="scroll_bar" extra="true">
+            <pos>0.75 0.95</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.5 0.1</size>
+        </image>
+
+    </view>
+
+    <!--
+    ///
+    View: System
+    ///
+    -->
+    <view name="system">
+
+        <!-- Top screen (X 0-0.5) -->
+        <image name="distro_logo" extra="true">
+            <pos>0.25 0.5</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.3 0.6</maxSize>
+        </image>
+
+        <!-- Bottom screen (X 0.5-1.0) -->
+        <carousel name="systemcarousel">
+            <pos>0.75 0.65</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.5 0.25</size>
+            <logoSize>0.04 0.12</logoSize>
+            <logoScale>1.0</logoScale>
+            <maxLogoCount>5</maxLogoCount>
+        </carousel>
+
+        <text name="systemName" extra="true">
+            <pos>0.75 0.15</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.35 0.1</size>
+        </text>
+
+        <text name="systemInfo">
+            <pos>0.75 0.35</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.35 0.3</size>
+        </text>
+
+    </view>
+
+    <!--
+    ///
+    View: Gamelist
+    ///
+    -->
+    <view name="gamecarousel">
+
+        <!-- Top screen (X 0-0.5) -->
+        <image name="preview_panel" extra="true">
+            <pos>0.25 0.45</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.4 0.65</size>
+        </image>
+
+        <video name="md_video">
+            <pos>0.25 0.45</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.35 0.6</maxSize>
+        </video>
+
+        <text name="logoText">
+            <pos>0.25 0.9</pos>
+            <origin>0.5 0.5</origin>
+        </text>
+
+        <!-- Bottom screen (X 0.5-1.0) -->
+        <gamecarousel name="gamecarousel">
+            <pos>0.75 0.64</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.5 0.25</size>
+            <logoSize>0.3 0.85</logoSize>
+            <logoScale>0.75</logoScale>
+            <maxLogoCount>5</maxLogoCount>
+        </gamecarousel>
+
+        <text name="md_name">
+            <pos>0.75 0.15</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.35 0.1</size>
+        </text>
+
+        <text name="md_description">
+            <pos>0.75 0.31</pos>
+            <origin>0.5 0.5</origin>
+            <size>0.35 0.22</size>
+        </text>
+
+    </view>
+
+</theme>
