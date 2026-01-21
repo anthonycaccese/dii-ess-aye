@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme>
+<theme defaultTransition="instant">
     <formatVersion>7</formatVersion>
 
     <!--
@@ -8,59 +8,29 @@
         Bottom screen (right): X 0.5-1.0, center X=0.75
     -->
 
-    <!-- Boot animation
-         Currently disabled by default in ROCNKIX, here for concept though.
-    <view name="splash" subset="splashview" defaultTransition="fade">
-        Comment: Both screens
-        <splash name="splash">
-            <backgroundColor>F2F2F2FF</backgroundColor>
-        </splash>
-        Comment: Splash probably doesn't support sound?
-        <sound name="splash">
-            <path>./assets/sounds/splash.wav</path>
-        </sound>
-
-        Comment: Top screen (X 0-0.5)
-        <image name="splash_logo">
-            <path>./assets/images/common/distro_logo.png</path>
-            <pos>0.25 0.5</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.3 0.6</maxSize>
-            <color>FFFFFF00</color>
-            <storyboard>
-                <animation property="color" from="FFFFFF00" to="FFFFFFFF" begin="0" duration="350" mode="linear"/>
-            </storyboard>
-        </image>
-
-        <image name="splash_effect">
-            <path>./assets/images/common/distro_effect.png</path>
-            <pos>0.125 0.5</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.2 0.6</maxSize>
-            <color>FFFFFF00</color>
-            <storyboard>
-                <animation property="color" from="FFFFFF00" to="FFFFFFCC" begin="0" duration="300" mode="linear"/>
-                <animation property="color" from="FFFFFFCC" to="FFFFFF00" begin="300" duration="200" mode="easeOutCubic" repeat="forever"/>
-                <animation property="size" from="0.15 0.4" to="0.3 0.8" begin="300" duration="200" mode="linear" repeat="forever"/>
-            </storyboard>
-        </image>
-    </view> -->
-
     <!-- Static elements 
          Definitely need to not be in screen view, as they overlay the option menu.
          Though I'm not sure how else to keep them static as the carousel moves?    -->
     <view name="screen">
         <!-- Top screen (X 0-0.5) -->
+        <image name="distro_logo" extra="true">
+            <path>./assets/images/common/distro_logo.png</path>
+            <pos>0.25 0.5</pos>
+            <origin>0.5 0.5</origin>
+            <maxSize>0.3 0.6</maxSize>
+            <zIndex>1</zIndex>
+        </image>
+
         <image name="left_tab_image" extra="true">
             <path>./assets/images/common/left_tab.png</path>
-            <pos>0 0</pos>
-            <size>0.125 0.1</size>
+            <pos>0 0.85</pos>
+            <size>0.125 0.15</size>
             <zIndex>1</zIndex>
         </image>
 
         <text name="left_tab_text" extra="true">
             <text>Prev</text>
-            <pos>0.04 0.03</pos>
+            <pos>0.05 0.875</pos>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.05</fontSize>
             <color>333333FF</color>
@@ -70,14 +40,14 @@
 
         <image name="right_tab_image" extra="true">
             <path>./assets/images/common/right_tab.png</path>
-            <pos>0.375 0</pos>
-            <size>0.125 0.1</size>
+            <pos>0.375 0.85</pos>
+            <size>0.125 0.15</size>
             <zIndex>1</zIndex>
         </image>
 
         <text name="right_tab_text" extra="true">
             <text>Next</text>
-            <pos>0.46 0.03</pos>
+            <pos>0.4 0.875</pos>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.05</fontSize>
             <color>333333FF</color>
@@ -88,15 +58,15 @@
         <!-- Bottom screen (X 0.5-1.0) -->
         <image name="text_bubble" extra="true">
             <path>./assets/images/common/text_bubble.png</path>
-            <pos>0.75 0.72</pos>
+            <pos>0.75 0.25</pos>
             <origin>0.5 0.5</origin>
-            <size>0.375 0.45</size>
-            <zIndex>51</zIndex>
+            <size>0.375 0.4</size>
+            <zIndex>56</zIndex>
         </image>
 
         <image name="start_window" extra="true">
             <path>./assets/images/common/start_window.png</path>
-            <pos>0.75 0.35</pos>
+            <pos>0.75 0.67</pos>
             <origin>0.5 0.5</origin>
             <maxSize>0.12 0.32</maxSize>
             <zIndex>55</zIndex>
@@ -106,39 +76,37 @@
             <path>./assets/images/common/scroll_bar.png</path>
             <pos>0.75 0.95</pos>
             <origin>0.5 0.5</origin>
-            <size>0.45 0.1</size>
+            <size>0.5 0.1</size>
             <zIndex>1</zIndex>
         </image>
+
+        <!-- Visibility override -->
+        <controllerActivity name="controllerActivity">
+            <visible>false</visible>
+        </controllerActivity>
     </view>
 
     <!-- Global elements -->
-    <view name="system, basic, detailed">
+    <view name="system, gamecarousel">
         <!-- Both screens -->
         <image name="background" extra="true">
-            <color>F2F2F2FF</color>
+            <pos>0 0</pos>
+            <size>1 1</size>
+            <path>./assets/images/common/background.png</path>
+            <zIndex>0</zIndex>
         </image>
 
         <!-- Bottom screen (X 0.5-1.0) -->
-        <image name="menu_slot" extra="true">
-            <path>./assets/menu_slot.png</path>
-            <pos>0.75 0.35</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.6 0.32</size>
-            <minSize>0.1 0.32</minSize>
-            <tile>true</tile>
-            <zIndex>53</zIndex>
-        </image>
-
         <!-- Scroll window should move across the center 4/5 range of scroll bar, but might not be possible? -->
         <image name="scroll_window" extra="true">
-            <path>./assets/scroll_window.png</path>
+            <path>./assets/images/common/scroll_window.png</path>
             <pos>0.75 0.95</pos>
             <origin>0.5 0.5</origin>
             <size>0.36 0.08</size>
             <zIndex>2</zIndex>
         </image>
 
-        <!-- Visibility overrides -->
+        <!-- Visibility override -->
         <helpsystem name="help">
             <textColor>00000000</textColor>
             <iconColor>00000000</iconColor>
@@ -146,29 +114,20 @@
     </view>
 
     <!-- Main system selection menu -->
-    <view name="system" subset="systemview">
+    <view name="system">
         <!-- Both screens -->
         <sound name="launch">
             <path>./assets/sounds/select.wav</path>
         </sound>
 
-        <!-- Top screen (X 0-0.5) -->
-        <image name="distro_logo" extra="true">
-            <path>./assets/images/common/distro_logo.png</path>
-            <pos>0.25 0.5</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.3 0.6</maxSize>
-            <zIndex>1</zIndex>
-        </image>
-
         <!-- Bottom screen (X 0.5-1.0) -->
         <carousel name="systemcarousel">
             <type>horizontal</type>
-            <pos>0.75 0.35</pos>
+            <pos>0.75 0.65</pos>
             <origin>0.5 0.5</origin>
-            <size>0.5 0.32</size>
-            <logoSize>0.09 0.24</logoSize>
-            <logoScale>1.0</logoScale>
+            <size>0.5 0.25</size>
+            <logoSize>0.04 0.12</logoSize>
+            <logoScale>2.3</logoScale>
             <color>00000000</color>
             <maxLogoCount>5</maxLogoCount>
             <zIndex>50</zIndex>
@@ -176,18 +135,12 @@
         </carousel>
 
         <text name="logoText">
-            <pos>0.75 0.54</pos>
-            <origin>0.5 0.5</origin>
-            <size>0.35 0.05</size>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
-            <fontSize>0.03</fontSize>
-            <color>333333FF</color>
-            <alignment>center</alignment>
-            <zIndex>52</zIndex>
+            <forceUppercase>true</forceUppercase>
         </text>
 
         <text name="systemInfo">
-            <pos>0.75 0.75</pos>
+            <pos>0.75 0.35</pos>
             <origin>0.5 0.5</origin>
             <size>0.35 0.3</size>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
@@ -198,14 +151,11 @@
         </text>
 
         <image name="logo">
-            <pos>0.75 0.35</pos>
-            <origin>0.5 0.5</origin>
-            <maxSize>0.09 0.24</maxSize>
-            <zIndex>54</zIndex>
+            <path>./assets/images/common/menu_slot.png</path>
         </image>
     </view>
 
-    <view name="basic, detailed" subset="gamelistview">
+    <view name="gamecarousel">
         <!-- Both screens -->
         <sound name="launch">
             <path>./assets/sounds/launch.wav</path>
@@ -217,16 +167,16 @@
         <!-- Top screen (X 0-0.5) -->
         <image name="preview_panel" extra="true">
             <path>./assets/images/common/preview_panel.png</path>
-            <pos>0.25 0.425</pos>
+            <pos>0.25 0.45</pos>
             <origin>0.5 0.5</origin>
-            <size>0.3 0.55</size>
+            <size>0.4 0.65</size>
             <zIndex>1</zIndex>
         </image>
 
         <video name="md_video">
-            <pos>0.25 0.425</pos>
+            <pos>0.25 0.45</pos>
             <origin>0.5 0.5</origin>
-            <maxSize>0.255 0.4675</maxSize>
+            <maxSize>0.35 0.6</maxSize>
             <delay>3</delay>
             <showSnapshotNoVideo>true</showSnapshotNoVideo>
             <showSnapshotDelay>true</showSnapshotDelay>
@@ -237,9 +187,9 @@
         <!-- Bottom screen (X 0.5-1.0) -->
         <carousel name="gamecarousel">
             <type>horizontal</type>
-            <pos>0.75 0.35</pos>
+            <pos>0.75 0.75</pos>
             <origin>0.5 0.5</origin>
-            <size>0.5 0.32</size>
+            <size>0.5 0.25</size>
             <logoSize>0.09 0.24</logoSize>
             <logoScale>1.0</logoScale>
             <color>00000000</color>
@@ -249,9 +199,9 @@
         </carousel>
 
         <text name="md_name">
-            <pos>0.75 0.56</pos>
+            <pos>0.75 0.175</pos>
             <origin>0.5 0.5</origin>
-            <size>0.35 0.05</size>
+            <size>0.35 0.1</size>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
             <fontSize>0.035</fontSize>
             <color>333333FF</color>
@@ -260,7 +210,7 @@
         </text>
 
         <text name="md_description">
-            <pos>0.75 0.72</pos>
+            <pos>0.75 0.35</pos>
             <origin>0.5 0.5</origin>
             <size>0.35 0.25</size>
             <fontPath>./assets/fonts/dsi_font.otf</fontPath>
