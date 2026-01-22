@@ -26,10 +26,17 @@
     ///
     -->
     <view name="screen">
-        <!-- Visibility override -->
+        <!-- Start: Resets -->
         <controllerActivity name="controllerActivity">
             <visible>false</visible>
         </controllerActivity>
+        <batteryIndicator name="batteryIndicator">
+            <visible>false</visible>
+        </batteryIndicator>
+        <text name="clock">
+            <pos>1 1</pos>
+        </text>
+        <!-- End: Resets -->
     </view>
 
     <!--
@@ -48,6 +55,49 @@
         </image>
 
         <!-- Top screen (X 0-0.5) -->
+
+        <!-- Start: System Indicators -->
+        <stackpanel name="system-indicators-left,system-indicators-right" extra="true">
+            <h>0.05625</h><!-- 27 -->
+            <pos>0.0078125 0.0166667</pos><!-- 10 8 -->
+        </stackpanel>
+        <stackpanel name="system-indicators-left" extra="true">
+            <orientation>horizontal</orientation>
+            <reverse>false</reverse>
+            <clock name="system-clock">
+                <color>333333FF</color>
+                <fontPath>./assets/fonts/dsi_font.otf</fontPath>
+                <fontSize>0.0291667</fontSize><!-- 14 -->
+                <lineSpacing>1</lineSpacing>
+            </clock>
+        </stackpanel>
+        <stackpanel name="system-indicators-right" extra="true">
+            <orientation>horizontal</orientation>
+            <reverse>true</reverse>
+            <batteryText name="system-battery-text">
+                <color>333333FF</color>
+                <fontPath>./assets/fonts/dsi_font.otf</fontPath>
+                <fontSize>0.0291667</fontSize><!-- 14 -->
+                <lineSpacing>1</lineSpacing>
+            </batteryText>
+            <batteryIcon name="system-battery-icon">
+                <maxSize>1 1</maxSize>
+                <full>./assets/images/common/battery_icon_100.svg</full>
+                <at75>./assets/images/common/battery_icon_75.svg</at75>
+                <at50>./assets/images/common/battery_icon_50.svg</at50>
+                <at25>./assets/images/common/battery_icon_25.svg</at25>
+                <empty>./assets/images/common/battery_icon_0.svg</empty>
+                <incharge>./assets/images/common/battery-icon-charging.svg</incharge>
+            </batteryIcon>
+            <networkIcon name="system-network-icon">
+                <maxSize>1 1</maxSize>
+                <color>333333FF</color>
+                <networkIcon>./assets/images/common/network_icon_on.svg</networkIcon>
+                <planemodeIcon>./assets/images/network_icon_off.svg</planemodeIcon>
+            </networkIcon>
+        </stackpanel>
+        <!-- End: System Indicators -->
+
         <image name="left_tab_image" extra="true">
             <path>./assets/images/common/left_tab.png</path>
             <zIndex>1</zIndex>
@@ -263,7 +313,7 @@
                 <animation event="scroll" property="scale"/>
             </storyboard>
         </text>
-        
+
     </view>
 
    <!--
